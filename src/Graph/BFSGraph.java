@@ -27,7 +27,6 @@ public class BFSGraph {
 
     private void createGraph() {
         int x = (m.getWidth()-1)/2;
-        int y = (m.getHeight()-1)/2;
         int num = 0;
 
         for(int i = 1; i < m.getHeight()-1; i+=2) {
@@ -55,7 +54,7 @@ public class BFSGraph {
 
             for(Integer j: adjList[i])
                 System.out.print(" -> " + j);
-            System.out.println("\n");
+            System.out.println();
         }
     }
 
