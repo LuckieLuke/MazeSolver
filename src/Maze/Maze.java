@@ -10,6 +10,8 @@ public class Maze {
     private char[][] maze;
     private int height;
     private int width;
+    private int in;
+    private int out;
 
     public Maze(String path, FileManager fm) {
         try {
@@ -26,6 +28,14 @@ public class Maze {
 
         height = maze.length;
         width = maze[0].length;
+
+        int index = 0;
+        while(maze[0][index++] != '#');
+        in = index - 1;
+
+        index = 0;
+        while(maze[height-1][index++] != '*');
+        out = index - 1;
     }
 
     public Maze(int a, int b) {
@@ -65,6 +75,14 @@ public class Maze {
         return maze[i][j];
     }
 
+    public int getIn() {
+        return in;
+    }
+
+    public int getOut() {
+        return out;
+    }
+
     public void generate() {
         generateMaze(1, width-2, 1, height-2, width > height);
     }
@@ -100,6 +118,9 @@ public class Maze {
         Random rand = new Random();
         int inPos = (rand.nextInt((width-1)/2) * 2) + 1;
         int outPos = (rand.nextInt((width-1)/2) * 2) + 1;
+
+        in = inPos;
+        out = outPos;
 
         maze[0][inPos] = '#';
         maze[height-1][outPos] = '*';

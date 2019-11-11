@@ -54,7 +54,7 @@ public class BFSGraph {
             System.out.print(i);
 
             for(Integer j: adjList[i])
-                System.out.println(" -> " + j);
+                System.out.print(" -> " + j);
             System.out.println("\n");
         }
     }
