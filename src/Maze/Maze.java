@@ -14,7 +14,10 @@ public class Maze {
     public Maze(String path, FileManager fm) {
         try {
         maze = fm.readData(path);
-        } catch(IOException e) { }
+        } catch(IOException e) {
+            System.out.println("Cannot read file!");
+            System.exit(5);
+        }
 
         if(maze == null) {
             System.err.println("Did not read correct maze.");
@@ -60,10 +63,6 @@ public class Maze {
 
     public char getChar(int i, int j) {
         return maze[i][j];
-    }
-
-    public void setChar(int i, int j, char c) {
-        maze[i][j] = c;
     }
 
     public void generate() {

@@ -1,6 +1,6 @@
 package Main;
 
-import Graph.GraphMaker;
+import Graph.BFSGraph;
 import Maze.Maze;
 
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class Main {
     static Maze m;
 
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         FileManager fm = new FileManager();
         System.out.println("How to create a maze?");
         System.out.println("1) by size");
@@ -49,9 +49,14 @@ public class Main {
                 System.exit(3);
             }
             System.out.println("Saved!");
-        }
+        }*/
 
+        Maze m = new Maze(2, 3);
+        m.generate();
         System.out.println("Your maze looks like this:\n" + m);
+
+        BFSGraph bfs = new BFSGraph(m);
+        bfs.printGraph();
 
     }
 
