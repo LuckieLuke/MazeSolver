@@ -51,13 +51,10 @@ public class Main {
             System.out.println("Saved!");
         }
 
-/*        Maze m = new Maze(5, 5);
-        m.generate();*/
         System.out.println("Your maze looks like this:\n" + m);
 
         BFSGraph bfs = new BFSGraph(m);
         bfs.printGraph();
-
     }
 
 }

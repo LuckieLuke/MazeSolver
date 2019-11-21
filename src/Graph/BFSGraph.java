@@ -17,11 +17,12 @@ public class BFSGraph {
             System.exit(6);
         }
 
-        adjList = new ArrayList[((m.getWidth()-1)/2)*((m.getHeight()-1)/2)];
+        adjList = new ArrayList[((m.getWidth() - 1) / 2) * ((m.getHeight() - 1) / 2)];
 
         for(int i = 0; i < adjList.length; i++) {
             adjList[i] = new ArrayList<>();
         }
+
         createGraph();
     }
 
@@ -48,32 +49,17 @@ public class BFSGraph {
         }
     }
 
+    public ArrayList<Node> getNeighbours(int i) {
+        return adjList[i];
+    }
+
     public void printGraph() {
         for(int i = 0; i < adjList.length; i++) {
             System.out.print(i);
 
             for(Node j: adjList[i])
-                System.out.print(" -> " + j.value);
+                System.out.print(" -> " + j.getValue());
             System.out.println();
         }
     }
-
-    class Node {
-        private boolean visited;
-        private int value;
-
-        public Node(int value) {
-            this.value = value;
-            visited = false;
-        }
-
-        public void visit() {
-            visited = true;
-        }
-
-        public void unvisit() {
-            visited = false;
-        }
-    }
-
 }

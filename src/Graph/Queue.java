@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Queue {
 
-    ArrayList<Integer> queue;
+    private ArrayList<Integer> queue;
 
     public Queue() {
         queue = new ArrayList<>();
@@ -24,8 +24,7 @@ public class Queue {
     }
 
     public int pull() {
-        int rem = queue.remove(0);
-        return rem;
+        return queue.remove(0);
     }
 
 }
