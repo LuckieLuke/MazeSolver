@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Queue {
 
-    private ArrayList<Integer> queue;
+    private ArrayList<Node> queue;
 
     public Queue() {
         queue = new ArrayList<>();
@@ -15,16 +15,19 @@ public class Queue {
         return queue.size();
     }
 
-    public void push(int x) {
+    public void push(Node x) {
         queue.add(x);
     }
 
-    public void push(ArrayList<Integer> list) {
+    public void push(ArrayList<Node> list) {
         queue.addAll(list);
     }
 
-    public int pull() {
+    public Node pull() {
         return queue.remove(0);
     }
 
+    public Node getEl(int i) {
+        return queue.get(i);
+    }
 }

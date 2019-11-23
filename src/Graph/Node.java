@@ -20,4 +20,16 @@ public class Node {
     public void unvisit() {
         visited = false;
     }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(value);
+        sb.append(", visited: " + visited);
+        return sb.toString();
+    }
 }

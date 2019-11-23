@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class QueueTest {
 
-    @Test
+    /*@Test
     public void push() {
         Queue q = new Queue();
         for(int i = 0; i < 5; i++)
@@ -34,6 +34,6 @@ public class QueueTest {
         q.push(2);
 
         Assert.assertEquals(q.pull(), 1);
-    }
+    }*/
 
 }

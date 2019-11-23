@@ -1,6 +1,9 @@
 package Maze;
 import Main.FileManager;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Formatter;
 import java.util.Random;
@@ -31,11 +34,11 @@ public class Maze {
 
         int index = 0;
         while(maze[0][index++] != '#');
-        in = index - 1;
+        in = (index-2)/2;
 
         index = 0;
         while(maze[height-1][index++] != '*');
-        out = index - 1;
+        out = (index-2)/2 + ((height-1)/2 - 1) * (width-1)/2;
     }
 
     public Maze(int a, int b) {
@@ -119,8 +122,8 @@ public class Maze {
         int inPos = (rand.nextInt((width-1)/2) * 2) + 1;
         int outPos = (rand.nextInt((width-1)/2) * 2) + 1;
 
-        in = inPos;
-        out = outPos;
+        in = (inPos-1)/2;
+        out = (outPos-1)/2 + (height-1)/2 * (width-1)/2;
 
         maze[0][inPos] = '#';
         maze[height-1][outPos] = '*';
