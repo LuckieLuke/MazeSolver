@@ -15,7 +15,6 @@ public class Main {
     static Maze m;
 
     public static void main(String[] args){
-/*
         Scanner sc = new Scanner(System.in);
         FileManager fm = new FileManager();
         System.out.println("How to create a maze?");
@@ -57,10 +56,9 @@ public class Main {
         }
 
         System.out.println("Your maze looks like this:\n" + m);
-*/
-        FileManager fm = new FileManager();
+        /*FileManager fm = new FileManager();
         m = new Maze("test.txt", fm);
-        System.out.println(m);
+        System.out.println(m);*/
 
         BFSGraph bfs = new BFSGraph(m);
     }

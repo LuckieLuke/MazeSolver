@@ -123,7 +123,7 @@ public class Maze {
         int outPos = (rand.nextInt((width-1)/2) * 2) + 1;
 
         in = (inPos-1)/2;
-        out = (outPos-1)/2 + (height-1)/2 * (width-1)/2;
+        out = (outPos-1)/2 + ((height-1)/2-1) * (width-1)/2;
 
         maze[0][inPos] = '#';
         maze[height-1][outPos] = '*';
@@ -159,6 +159,8 @@ public class Maze {
             }
             sb.append('\n');
         }
+        sb.append("in: " + in + ", out: " + out);
+
         return sb.toString();
     }
 }

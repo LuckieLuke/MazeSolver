@@ -63,7 +63,7 @@ public class BFSGraph {
         }
     }
 
-    public ArrayList<Integer> BFSSearch(int start, int end) {
+    private ArrayList<Integer> BFSSearch(int start, int end) {
         ArrayList<Integer> result = new ArrayList<>();
         Queue q = new Queue();
 
