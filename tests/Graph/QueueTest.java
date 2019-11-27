@@ -1,4 +1,4 @@
-package Graph;
+package Graphs;
 
 import org.junit.Assert;
 import org.junit.Test;

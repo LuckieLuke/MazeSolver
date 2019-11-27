@@ -1,13 +1,10 @@
 package Main;
 
-import Graph.BFSGraph;
-import Graph.Node;
+import Graphs.BFSGraph;
+import Graphs.TremauxGraph;
 import Maze.Maze;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -56,11 +53,11 @@ public class Main {
         }
 
         System.out.println("Your maze looks like this:\n" + m);
-        /*FileManager fm = new FileManager();
-        m = new Maze("test.txt", fm);
-        System.out.println(m);*/
-
         BFSGraph bfs = new BFSGraph(m);
+        bfs.search();
+        TremauxGraph tg = new TremauxGraph(m);
+        tg.search();
+
     }
 
 }

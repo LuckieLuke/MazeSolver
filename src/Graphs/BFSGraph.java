@@ -1,8 +1,7 @@
-package Graph;
+package Graphs;
 
 import Maze.Maze;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -31,13 +30,6 @@ public class BFSGraph {
             nodes[i] = new Node(i);
 
         createGraph();
-        ArrayList<Integer> nodes = BFSSearch(m.getIn(), m.getOut());
-
-        System.out.println("Your path to the exit is:");
-        System.out.print("IN->");
-        for(Integer i: nodes)
-            System.out.print((i+1) + "->");
-        System.out.println("OUT");
     }
 
     private void createGraph() {
@@ -63,7 +55,11 @@ public class BFSGraph {
         }
     }
 
-    private ArrayList<Integer> BFSSearch(int start, int end) {
+    public void search() {
+        BFSSearch(m.getIn(), m.getOut());
+    }
+
+    private void BFSSearch(int start, int end) {
         ArrayList<Integer> result = new ArrayList<>();
         Queue q = new Queue();
 
@@ -90,7 +86,7 @@ public class BFSGraph {
             }
         }
 
-        return shortestPath(result);
+        print(shortestPath(result));
     }
 
     private ArrayList<Integer> shortestPath(ArrayList<Integer> res) {
@@ -104,5 +100,58 @@ public class BFSGraph {
         }
 
         return res;
+    }
+
+    private void print(ArrayList<Integer> nodes) {
+        System.out.println("Your BFSed shortest path to the exit is:");
+        System.out.print("IN->");
+        for(Integer i: nodes)
+            System.out.print((i+1) + "->");
+        System.out.println("EXIT");
+        System.out.println();
+    }
+
+    class Queue {
+
+        private ArrayList<Node> queue;
+
+        Queue() {
+            queue = new ArrayList<>();
+        }
+
+        int getSize() {
+            return queue.size();
+        }
+
+        void push(Node x) {
+            queue.add(x);
+        }
+
+        Node pull() {
+            return queue.remove(0);
+        }
+
+    }
+
+    class Node {
+        private boolean visited;
+        private int value;
+
+         Node(int value) {
+            this.value = value;
+            visited = false;
+        }
+
+        int getValue() {
+            return value;
+        }
+
+        void visit() {
+            visited = true;
+        }
+
+        boolean isVisited() {
+            return visited;
+        }
     }
 }
