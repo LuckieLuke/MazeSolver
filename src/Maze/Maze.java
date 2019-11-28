@@ -1,11 +1,7 @@
 package Maze;
-import Main.FileManager;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import Main.FileManager;
 import java.io.IOException;
-import java.util.Formatter;
 import java.util.Random;
 
 public class Maze {
@@ -66,26 +62,6 @@ public class Maze {
         }
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public char getChar(int i, int j) {
-        return maze[i][j];
-    }
-
-    public int getIn() {
-        return in;
-    }
-
-    public int getOut() {
-        return out;
-    }
-
     public void generate() {
         generateMaze(1, width-2, 1, height-2, width > height);
     }
@@ -140,6 +116,54 @@ public class Maze {
                 if(i != hole)
                     maze[pos][i] = '+';
         }
+    }
+
+    public void makeRandomHoles(int holes) {
+        boolean vertical = true;
+        int wall, hole;
+        Random rand = new Random();
+
+        while(holes > 0) {
+            if(vertical) {
+                wall = (rand.nextInt((maze[0].length - 3) / 2) + 1) * 2;
+                hole = (rand.nextInt((maze.length - 3) / 2)) * 2 + 1;
+
+                if(maze[hole][wall] == '+') {
+                    maze[hole][wall] = '0';
+                    holes--;
+                }
+            }
+            else {
+                wall = (rand.nextInt((maze.length - 3) / 2) + 1) * 2;
+                hole = (rand.nextInt((maze[0].length - 3) / 2)) * 2 + 1;
+
+                if(maze[wall][hole] == '+') {
+                    maze[wall][hole] = '0';
+                    holes--;
+                }
+            }
+            vertical = !vertical;
+        }
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public char getChar(int i, int j) {
+        return maze[i][j];
+    }
+
+    public int getIn() {
+        return in;
+    }
+
+    public int getOut() {
+        return out;
     }
 
     @Override

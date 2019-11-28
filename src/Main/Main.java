@@ -52,6 +52,17 @@ public class Main {
             System.out.println("Saved!");
         }
 
+        /* 
+        *  This line below makes x random holes in the walls,
+        *  creating more possible paths to the exit.
+        *  Just comment it (or change the argument to 0) to get
+        *  the same solutions from both searching algorithms.
+        *  You can also adjust number of random holes
+        *  by changing argument of the function.
+        */
+
+        m.makeRandomHoles(0);
+
         System.out.println("Your maze looks like this:\n" + m);
         BFSGraph bfs = new BFSGraph(m);
         bfs.search();
