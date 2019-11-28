@@ -4,6 +4,7 @@ import Graphs.BFSGraph;
 import Graphs.TremauxGraph;
 import Maze.Maze;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -52,7 +53,7 @@ public class Main {
             System.out.println("Saved!");
         }
 
-        /* 
+        /*
         *  This line below makes x random holes in the walls,
         *  creating more possible paths to the exit.
         *  Just comment it (or change the argument to 0) to get
@@ -61,7 +62,7 @@ public class Main {
         *  by changing argument of the function.
         */
 
-        m.makeRandomHoles(0);
+        m.makeRandomHoles(4);
 
         System.out.println("Your maze looks like this:\n" + m);
         BFSGraph bfs = new BFSGraph(m);

@@ -6,16 +6,21 @@ import java.io.*;
 
 public class FileManager {
 
-    public char[][] readData(String path) throws IOException {
+    public char[][] readData(String path) throws FileNotFoundException {
         FileReader fr = new FileReader(path);
         int rows = 0;
         int chars = 0;
 
         int tmp;
-        while((tmp = fr.read()) != -1) {
-            chars++;
-            if(tmp == '\n')
-                rows++;
+        try {
+            while ((tmp = fr.read()) != -1) {
+                chars++;
+                if (tmp == '\n')
+                    rows++;
+            }
+        } catch (IOException e) {
+            System.out.println("Error while reading from file.");
+            System.exit(8);
         }
         int columns = chars/rows;
         columns--;
@@ -26,15 +31,19 @@ public class FileManager {
 
         int i = 0;
         int j = 0;
-        while((tmp = fr.read()) != -1) {
-            if((char)tmp == '\n') {
-                i++;
-                j = 0;
+        try {
+            while ((tmp = fr.read()) != -1) {
+                if ((char) tmp == '\n') {
+                    i++;
+                    j = 0;
+                } else {
+                    maze[i][j] = (char) tmp;
+                    j++;
+                }
             }
-            else {
-                maze[i][j] = (char)tmp;
-                j++;
-            }
+        } catch (IOException e) {
+            System.out.println("Error while reading from file.");
+            System.exit(8);
         }
 
         return maze;
