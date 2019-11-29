@@ -172,11 +172,11 @@ public class Maze {
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
                 if(maze[i][j] == '0')
-                    sb.append("\u001B[32m" + "□" + "\u001B[0m");
+                    sb.append("\u001B[32m" + "☺" + "\u001B[0m");
                 else if(maze[i][j] == '+')
-                    sb.append("\u001B[31m" + "■" + "\u001B[0m");
+                    sb.append("\u001B[31m" + "☻" + "\u001B[0m");
                 else if(maze[i][j] == '#' || maze[i][j] == '*')
-                    sb.append("\u001B[34m" + "■" + "\u001B[0m");
+                    sb.append("\u001B[34m" + "☻" + "\u001B[0m");
 
                 else
                     sb.append(maze[i][j]);
