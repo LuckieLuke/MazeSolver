@@ -62,7 +62,7 @@ public class Main {
         *  by changing argument of the function.
         */
 
-        m.makeRandomHoles(4);
+        m.makeRandomHoles(10);
 
         System.out.println("Your maze looks like this:\n" + m);
         BFSGraph bfs = new BFSGraph(m);

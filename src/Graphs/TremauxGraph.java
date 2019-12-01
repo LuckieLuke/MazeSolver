@@ -44,6 +44,8 @@ public class TremauxGraph {
         int direction;
         Random rand = new Random();
 
+        long before = System.nanoTime();
+
         while(!(x == exit && y == maze.length-2)) {
             if(goodToGoPaths(x, y) > 0) {
                 chosenPath = rand.nextInt(goodToGoPaths(x, y));
@@ -72,7 +74,10 @@ public class TremauxGraph {
                     break;
             }
         }
-        printPath();
+
+        long after = System.nanoTime();
+
+        printPath(after - before);
     }
 
     private int goodToGoPaths(int i, int j) {
@@ -104,7 +109,7 @@ public class TremauxGraph {
         return list;
     }
 
-    private void printPath() {
+    private void printPath(long before) {
         int num = (start - 1) / 2 + 1;
         System.out.println("Path found with Trémaux algorithm is:");
         System.out.print("IN->" + num + "->");
@@ -126,6 +131,8 @@ public class TremauxGraph {
             System.out.print(num + "->");
         }
         System.out.println("EXIT");
+        long after = System.nanoTime();
+        System.out.println("It took " + (after-before) + " ns to find this path.");
     }
 
     class Stack {

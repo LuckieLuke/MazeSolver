@@ -63,6 +63,8 @@ public class BFSGraph {
         ArrayList<Integer> result = new ArrayList<>();
         Queue q = new Queue();
 
+        long before = System.nanoTime();
+
         nodes[start].visit();
         q.push(nodes[start]);
 
@@ -86,7 +88,7 @@ public class BFSGraph {
             }
         }
 
-        print(shortestPath(result));
+        print(shortestPath(result), before);
     }
 
     private ArrayList<Integer> shortestPath(ArrayList<Integer> res) {
@@ -102,13 +104,14 @@ public class BFSGraph {
         return res;
     }
 
-    private void print(ArrayList<Integer> nodes) {
+    private void print(ArrayList<Integer> nodes, long before) {
+        long after = System.nanoTime();
         System.out.println("Your BFSed shortest path to the exit is:");
         System.out.print("IN->");
         for(Integer i: nodes)
             System.out.print((i+1) + "->");
         System.out.println("EXIT");
-        System.out.println();
+        System.out.println("It took " + (after - before) + " ns to find this path.\n");
     }
 
     class Queue {
