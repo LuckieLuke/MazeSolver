@@ -109,7 +109,7 @@ public class TremauxGraph {
         return list;
     }
 
-    private void printPath(long before) {
+    private void printPath(long time) {
         int num = (start - 1) / 2 + 1;
         System.out.println("Path found with Trémaux algorithm is:");
         System.out.print("IN->" + num + "->");
@@ -131,8 +131,8 @@ public class TremauxGraph {
             System.out.print(num + "->");
         }
         System.out.println("EXIT");
-        long after = System.nanoTime();
-        System.out.println("It took " + (after-before) + " ns to find this path.");
+
+        System.out.println("It took " + time + " ns to find this path.");
     }
 
     class Stack {
